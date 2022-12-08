@@ -14,6 +14,8 @@ import { DataService } from './Pages/data.service';
 import { AuthService } from './Pages/services/auth.service';
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
+import { KanbanTimerComponent } from './Pages/kanban-timer/kanban-timer.component';
+import { SomethingComponent } from './Pages/something/something.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { environment } from 'src/environments/environment';
     ExperienceComponent,
     LoginComponent,
     NotFoundComponent,
-    GuestComponent
+    GuestComponent,
+    KanbanTimerComponent
   ],
   imports: [
     BrowserModule,
