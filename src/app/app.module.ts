@@ -5,17 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { AboutMeComponent } from './Pages/about-me/about-me.component';
-import { ExperienceComponent } from './Pages/experience/experience.component';
-import { LoginComponent } from './Pages/login/login.component';
-import { NotFoundComponent } from './Pages/not-found/not-found.component';
-import { GuestComponent } from './Pages/guest/guest.component';
-import { DataService } from './Pages/data.service';
-import { AuthService } from './Pages/services/auth.service';
+import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { ExperienceComponent } from './pages/experience/experience.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { GuestComponent } from './pages/guest/guest.component';
+import { DataService } from './pages/data.service';
+import { AuthService } from './pages/services/auth.service';
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment';
-import { KanbanTimerComponent } from './Pages/kanban-timer/kanban-timer.component';
-import { SomethingComponent } from './Pages/something/something.component'
+import { KanbanTimerComponent } from './pages/kanban-timer/kanban-timer.component';
+import { SomethingComponent } from './pages/something/something.component';
+import { TicTacGameComponent } from './pages/experience/pages/tic-tac-game/tic-tac-game.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SomethingComponent } from './Pages/something/something.component'
     LoginComponent,
     NotFoundComponent,
     GuestComponent,
-    KanbanTimerComponent
+    KanbanTimerComponent,
+    TicTacGameComponent
   ],
   imports: [
     BrowserModule,
