@@ -39,12 +39,15 @@
       <div class="formbg-outer">
         <div class="formbg">
           <div class="formbg-inner padding-horizontal--48">
-            <span class="padding-bottom--15">Sign in to your account</span>
-            <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" id="stripe-login" >
+            <span class="padding-bottom--15" *ngIf="whatIs">Sign in to your account</span>
+            <span class="padding-bottom--15" *ngIf="!whatIs">Reg your account</span>
+            <form  id="stripe-login" *ngIf="whatIs">
+            <!-- <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" id="stripe-login" > -->
               <div class="field padding-bottom--24">
                 <label for="email">Email*</label>
-                <p *ngIf="this.loginForm.get('email')?.invalid && this.loginForm.get('email')?.touched"><small style="color: red">Email is required</small></p>
-                <input type="email" name="email" formControlName="email">
+                <!-- <p *ngIf="this.loginForm.get('email')?.invalid && this.loginForm.get('email')?.touched"><small style="color: red">Email is required</small></p> -->
+                <input type="email" name="email" [(ngModel)]="emailLog">
+                <!-- <input type="email" name="email" formControlName="email" [(ngModel)]="emailLog"> -->
               </div>
               <div class="field padding-bottom--24">
                 <div class="grid--50-50">
@@ -54,8 +57,9 @@
                     <a href="#">Forgot your password?</a>
                   </div>
                 </div>
-                <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched"><small style="color: red">Password is required(6-16 simb, and numb)</small></p>
-                <input type="password" name="password" formControlName="password">
+                <!-- <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched"><small style="color: red">Password is required(6-16 simb, and numb)</small></p> -->
+                <!-- <input type="password" name="password" formControlName="password" [(ngModel)]="passwordLog"> -->
+                <input type="password" name="password"  [(ngModel)]="passwordLog">
 
               </div>
               <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
@@ -64,21 +68,67 @@
                 </label>
               </div>
               <div class="field padding-bottom--24">
-                <input type="submit" [disabled]="loginForm.invalid" name="submit" value="Continue" style="background: blue;">
+                <!-- <input type="submit" [disabled]="loginForm.invalid" name="submit" value="Continue" style="background: blue;"> -->
+                <input type="submit" (click)="login()" name="submit" value="Continue" style="background: blue;">
               </div>
               <div class="field padding-bottom--24">
-                <input type="submit" name="submit" value="No have account" style="background: white; color:black">
+                <input type="submit" name="submit" value="No have account" style="background: white; color:black" (click)="registrWindow()">
               </div>
               <div class="field">
                 <a class="ssolink" href="#">Use single sign-on (Google) instead</a>
               </div>
             </form>
+            <form  id="stripe-login" *ngIf="!whatIs">
+              <!-- <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" id="stripe-login" > -->
+                <div class="field padding-bottom--24">
+                  <label for="email">Email*</label>
+                  <!-- <p *ngIf="this.loginForm.get('email')?.invalid && this.loginForm.get('email')?.touched"><small style="color: red">Email is required</small></p> -->
+                  <!-- <input type="email" name="email" formControlName="email" [(ngModel)]="emailReg"> -->
+                  <input type="email" name="email" [(ngModel)]="emailReg">
+                </div>
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label for="password">Password*</label>
+                  </div>
+                  <!-- <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched"><small style="color: red">Password is required(6-16 simb, and numb)</small></p> -->
+                  <input type="password" name="password" [(ngModel)]="passwordReg">
+
+                  <!-- <input type="password" name="password" formControlName="password" [(ngModel)]="passwordReg"> -->
+
+                </div>
+                <div class="field padding-bottom--24">
+                  <div class="grid--50-50">
+                    <label>Your Company</label>
+                  </div>
+                  <!-- <p *ngIf="this.loginForm.get('password')?.invalid && this.loginForm.get('password')?.touched"><small style="color: red">Password is required(6-16 simb, and numb)</small></p> -->
+                  <input>
+
+                  <!-- <input type="password" name="password" formControlName="password" [(ngModel)]="passwordReg"> -->
+
+                </div>
+
+                <div class="field field-checkbox padding-bottom--24 flex-flex align-center">
+                  <label for="checkbox">
+                    <input type="checkbox" name="checkbox"> Stay signed in for a week
+                  </label>
+                </div>
+                <div class="field padding-bottom--24">
+                  <!-- <input type="submit" [disabled]="loginForm.invalid" name="submit" value="Continue" style="background: blue;"> -->
+                  <input type="submit" (click)="registr()" name="submit" value="Continue" style="background: blue;">
+                </div>
+                <div class="field padding-bottom--24">
+                  <input type="submit" name="submit" value="You have account" style="background: white; color:black" (click)="loginWindow()">
+                </div>
+                <div class="field">
+                  <a class="ssolink" href="#">Use single sign-on (Google) instead</a>
+                </div>
+              </form>
           </div>
         </div>
         <div class="footer-link padding-top--24">
           <span>Don't have an account? <a routerLink="/guest">Be a Guest</a></span>
           <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
-            <span><a href="#">Contact</a></span>
+            <span><a href="mailto:danik.ginzburg.00@gmail.com">Contact</a></span>
             <span><a href="#">Privacy & terms</a></span>
           </div>
         </div>

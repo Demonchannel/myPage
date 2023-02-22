@@ -3,41 +3,95 @@ main
   min-heigth :100%
   display : flex
   justify-content : center
-  background-image : url('../../../assets/background.svg')
-  background-size : 100% 100%
-  background-repeat : no-repeat
-  background-position : center
+  overflow :  hidden
+
   div
-    background-color : #9C9CA6
-    min-width : 50%
-    div
+    div.mage
       display : flex
       flex-direction : row
+      heigth : 15vh
       div //meImage
-        width : 168px
-        heigth : 168px
+        max-width : 100%
         img
-          width : 164px
-          heigth :164px
-      div // Info
+          width : 19.7vw
+          heigth : 15vh
+          border : 1px solid #000
+          overflow : hidden
+
+  div.info
+    display : flex
+    flex-direction : row
+    text-align : center
+    justify-content : flex-start
+    border-bottom : 1px solid black
+    padding-right : 10px
+    padding-left : 10px
+    div
+      font-family : BB-CondBold,Helvetica Neue,Helvetica,Arial,sans-serif
+      font-size : 1.375rem
+      font-weight : 400
+      line-height : 110%
+      letter-spacing : .05em
+      max-width : 50vw
+      padding : 20px
+
+  div.container //SecondBlock
+    div //Skills + Expirence
+      display : flex
+      flex-direction : column
+      h1
         display : flex
-        flex-direction : column
-        color : white
-    div //SecondBlock
-      div //Skills + Expirence
+        justify-content : center
+        padding-bottom : 21px
+        margin-bottom : 0px
+
+      div //Skills
         display : flex
-        flex-direction : column
-        div //Skills
+        flex-direction : row
+        // justify-content : space-around
+        div
           display : flex
-          flex-direction : column
-          div
-            display : flex
-            flex-direction : row
-            margin : 10px
-            gap : 10px
-            font-family : Impact
-            img
-              heigth : 100px
-              width : 100px
-        div //Expirence
-      // div //info
+          flex-direction : row
+          width : 16.375vw
+          // margin : 10px
+          // gap : 10px
+          font-family : BB-Regular,Helvetica Neue,Helvetica,Arial,sans-serif
+          font-size : .875rem
+          font-weight : 400
+          color : black
+          border : 1px solid #000
+          align-items : center
+
+          img
+            heigth : 100px
+            width : 100px
+
+
+div.exp //Expirence
+  display : flex
+  flex-direction : column
+  h1
+    display : flex
+    justify-content : center
+
+div.container-cards
+  display : flex
+  flex-direction : row
+  border-block : 1px solid #000
+  font-family : BB-CondBold,Helvetica Neue,Helvetica,Arial,sans-serif
+  font-size : 1.375rem
+  font-weight : 400
+  line-height : 110%
+  letter-spacing : .05em
+  div
+    display : flex
+    flex-direction : column
+    border : 1px solid #000
+    h3
+      margin-top : 25px
+      margin-bottom : 0
+      display : flex
+      justify-content : center
+    p
+      word-wrap : break-word
+
